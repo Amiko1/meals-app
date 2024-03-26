@@ -14,6 +14,7 @@ export default function CategoriesScreen() {
       data={CATEGORIES}
       keyExtractor={(item) => item.id}
       renderItem={rendnerCategoryItem}
+      numColumns={2}
     >
       CategoriesScreen
     </FlatList>
