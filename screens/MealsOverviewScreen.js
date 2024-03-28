@@ -21,8 +21,15 @@ export default function MealsOverviewScreen({ route, navigation }) {
     });
   }, [catId, navigation]);
 
+  function selectMealItemHandler(mealId) {
+    navigation.navigate("MealsDetails", {
+      mealId,
+    });
+  }
+
   function renderMealItem(itemData) {
     const item = itemData.item;
+
     const mealItemProps = {
       title: item.title,
       imageUrl: item.imageUrl,
@@ -30,7 +37,12 @@ export default function MealsOverviewScreen({ route, navigation }) {
       complexity: item.complexity,
       duration: item.duration,
     };
-    return <MealItem {...mealItemProps} />;
+    return (
+      <MealItem
+        {...mealItemProps}
+        onPress={() => selectMealItemHandler(item.id)}
+      />
+    );
   }
 
   return (
